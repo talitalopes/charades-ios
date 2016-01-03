@@ -14,6 +14,10 @@
 		0A8529011C39509A000FB7DF /* charadesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8529001C39509A000FB7DF /* charadesTests.swift */; };
 		0A85290C1C39509A000FB7DF /* charadesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85290B1C39509A000FB7DF /* charadesUITests.swift */; };
 		0A85291B1C39530B000FB7DF /* CharadesCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85291A1C39530B000FB7DF /* CharadesCollectionsViewController.swift */; };
+		0A85291D1C3953F9000FB7DF /* GameRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85291C1C3953F9000FB7DF /* GameRoundViewController.swift */; };
+		0A8529201C399108000FB7DF /* CharadeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85291F1C399108000FB7DF /* CharadeCell.swift */; };
+		0A8529251C39980E000FB7DF /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8529241C39980E000FB7DF /* UIColor+CustomColors.swift */; };
+		0A8529271C399821000FB7DF /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8529261C399821000FB7DF /* UINavigationBar+Appearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		0A85290B1C39509A000FB7DF /* charadesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = charadesUITests.swift; sourceTree = "<group>"; };
 		0A85290D1C39509A000FB7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A85291A1C39530B000FB7DF /* CharadesCollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharadesCollectionsViewController.swift; path = View/CharadesCollectionsViewController.swift; sourceTree = "<group>"; };
+		0A85291C1C3953F9000FB7DF /* GameRoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoundViewController.swift; sourceTree = "<group>"; };
+		0A85291F1C399108000FB7DF /* CharadeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharadeCell.swift; sourceTree = "<group>"; };
+		0A8529241C39980E000FB7DF /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+CustomColors.swift"; path = "charades/Extensions/UIColor+CustomColors.swift"; sourceTree = SOURCE_ROOT; };
+		0A8529261C399821000FB7DF /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Appearance.swift"; path = "../../../../../UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 		0A8528EA1C39509A000FB7DF /* charades */ = {
 			isa = PBXGroup;
 			children = (
+				0A8529211C39963E000FB7DF /* Extensions */,
 				0A8529191C3952EC000FB7DF /* View */,
 				0A8528EB1C39509A000FB7DF /* AppDelegate.swift */,
 				0A8528EF1C39509A000FB7DF /* Main.storyboard */,
@@ -128,9 +137,30 @@
 		0A8529191C3952EC000FB7DF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0A85291E1C3990FE000FB7DF /* Cells */,
 				0A85291A1C39530B000FB7DF /* CharadesCollectionsViewController.swift */,
+				0A85291C1C3953F9000FB7DF /* GameRoundViewController.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		0A85291E1C3990FE000FB7DF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0A85291F1C399108000FB7DF /* CharadeCell.swift */,
+			);
+			name = Cells;
+			path = View/Cells;
+			sourceTree = "<group>";
+		};
+		0A8529211C39963E000FB7DF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A8529241C39980E000FB7DF /* UIColor+CustomColors.swift */,
+				0A8529261C399821000FB7DF /* UINavigationBar+Appearance.swift */,
+			);
+			name = Extensions;
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8529271C399821000FB7DF /* UINavigationBar+Appearance.swift in Sources */,
+				0A8529201C399108000FB7DF /* CharadeCell.swift in Sources */,
 				0A8528EC1C39509A000FB7DF /* AppDelegate.swift in Sources */,
+				0A8529251C39980E000FB7DF /* UIColor+CustomColors.swift in Sources */,
+				0A85291D1C3953F9000FB7DF /* GameRoundViewController.swift in Sources */,
 				0A85291B1C39530B000FB7DF /* CharadesCollectionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

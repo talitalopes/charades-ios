@@ -8,6 +8,29 @@
 
 import UIKit
 
+enum CharadesCellSetup {
+    case Odd, Even
+    
+    init(index: Int) {
+        if (index % 2 == 0) {
+            self = .Even
+            return
+        }
+        self = .Odd
+    }
+    
+    func setup(cell: CharadeCell) {
+        cell.titleLabel.backgroundColor = UIColor.charadesCollectionColor()
+        cell.titleLabel.textColor = UIColor.lightTextColor()
+        
+        cell.clipsToBounds = false
+        cell.titleLabel.layer.shadowColor = UIColor.shadowColor().CGColor
+        cell.titleLabel.layer.shadowOffset = CGSizeMake(0, 3)
+        cell.titleLabel.layer.shadowOpacity = 0.5
+    }
+    
+}
+
 class CharadesCollectionsViewController: UIViewController {
 
     @IBOutlet weak var tableView : UITableView!
@@ -15,16 +38,24 @@ class CharadesCollectionsViewController: UIViewController {
     var datasource = ["Famosos do Mundo", "Países", "Expressões Populares"]
     var kCellIdentifier = "CharadeCollectionCell"
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Charades"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = ""
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let title = sender as? String
+        
+        if let destinationViewController = segue.destinationViewController as? GameRoundViewController {
+            destinationViewController.title = title
+        }
+        
+    }
 }
 
 extension CharadesCollectionsViewController : UITableViewDataSource {
@@ -39,7 +70,12 @@ extension CharadesCollectionsViewController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier(kCellIdentifier, forIndexPath: indexPath)
-        cell.textLabel?.text = self.datasource[indexPath.row]
+        
+        if let charadeCell = cell as? CharadeCell {
+            charadeCell.titleLabel?.text = self.datasource[indexPath.row]
+            CharadesCellSetup(index: indexPath.row).setup(charadeCell)
+        }
+        
         return cell
     }
     
@@ -48,7 +84,12 @@ extension CharadesCollectionsViewController : UITableViewDataSource {
 extension CharadesCollectionsViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 140
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        self.performSegueWithIdentifier("CharadeSegue", sender: self.datasource[indexPath.row])
     }
     
 }
