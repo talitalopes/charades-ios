@@ -12,7 +12,7 @@ class GameRoundViewController : UIViewController {
     
     @IBOutlet weak var charadeLabel : UILabel? {
         didSet {
-            self.charadeLabel?.text = "Charade \(self.count)"
+            self.charadeLabel?.text = "Get Ready!"
             self.charadeLabel?.textColor = UIColor.roundCharadeTextColor()
         }
     }
@@ -49,9 +49,14 @@ class GameRoundViewController : UIViewController {
         }
     }
 
-    var count = 1 {
+    var count : Int = 0 {
         didSet {
+            if (count == 0) {
+                return
+            }
             self.charadeLabel?.text = "Charade \(self.count)"
+            self.correctGuessesLabel?.text =
+            "\(self.correctGuesses) / \(self.count)"
         }
     }
     
@@ -63,7 +68,7 @@ class GameRoundViewController : UIViewController {
     }
     
     @IBAction func skipToNext() {
-        count++
+        self.count += 1
         self.charadeLabel?.text = "Charade \(self.count)"
     }
     
@@ -72,10 +77,32 @@ class GameRoundViewController : UIViewController {
         self.skipToNext()
     }
     
+    var timer : NSTimer?
+    var counter = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         self.view.backgroundColor = UIColor.roundBackgroundColor()
+        
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showTimer:", userInfo: nil, repeats: true)
+        
+        NSRunLoop.currentRunLoop().addTimer(self.timer!, forMode: NSDefaultRunLoopMode)
+    }
+    
+    func showTimer(timer: NSTimer) {
+        self.charadeLabel?.text = "\(self.counter)"
+        
+        if (counter == 0) {
+            self.timer?.invalidate()
+            self.count = 1
+            self.charadeLabel?.text = "Charade \(self.count)"
+            
+            self.nextButton?.hidden = false
+            self.jumpButton?.hidden = false
+        }
+        
+        self.counter -= 1
     }
     
 //    override func viewDidAppear(animated: Bool) {
