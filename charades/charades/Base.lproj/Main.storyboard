@@ -96,22 +96,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZF-9y-Yyx">
-                                <rect key="frame" x="154" y="544" width="292" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Idj-Yg-nhX"/>
-                                </constraints>
-                                <state key="normal" title="Próximo"/>
-                                <connections>
-                                    <action selector="correctGuesse" destination="lZm-RU-yaF" eventType="touchUpInside" id="HaQ-he-rMI"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqq-56-lCe">
-                                <rect key="frame" x="20" y="82" width="560" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEA-o7-prk">
                                 <rect key="frame" x="154" y="488" width="292" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -123,6 +107,28 @@
                                     <action selector="skipToNext" destination="lZm-RU-yaF" eventType="touchUpInside" id="tcs-07-vi2"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZF-9y-Yyx">
+                                <rect key="frame" x="154" y="544" width="292" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Idj-Yg-nhX"/>
+                                </constraints>
+                                <state key="normal" title="Próximo"/>
+                                <connections>
+                                    <action selector="correctGuesse" destination="lZm-RU-yaF" eventType="touchUpInside" id="HaQ-he-rMI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqq-56-lCe">
+                                <rect key="frame" x="538" y="82" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjz-WZ-mbl">
+                                <rect key="frame" x="20" y="82" width="21" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -130,20 +136,28 @@
                             <constraint firstItem="JcE-Yf-LwF" firstAttribute="centerX" secondItem="WRX-KF-dIW" secondAttribute="centerX" id="CoZ-fT-TIK"/>
                             <constraint firstItem="UEA-o7-prk" firstAttribute="centerX" secondItem="WRX-KF-dIW" secondAttribute="centerX" id="Fr0-NK-cVP"/>
                             <constraint firstItem="gM4-Ag-gHn" firstAttribute="top" secondItem="oZF-9y-Yyx" secondAttribute="bottom" constant="16" id="GLD-jz-Ddx"/>
+                            <constraint firstItem="Mjz-WZ-mbl" firstAttribute="leading" secondItem="WRX-KF-dIW" secondAttribute="leadingMargin" id="HBp-e6-Wzr"/>
                             <constraint firstItem="oZF-9y-Yyx" firstAttribute="top" secondItem="UEA-o7-prk" secondAttribute="bottom" constant="16" id="M6O-GF-PTe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wqq-56-lCe" secondAttribute="trailing" id="Vta-IV-CEw"/>
                             <constraint firstItem="UEA-o7-prk" firstAttribute="width" secondItem="WRX-KF-dIW" secondAttribute="width" multiplier="0.5" constant="-8" id="aut-dI-Jtp"/>
                             <constraint firstItem="oZF-9y-Yyx" firstAttribute="width" secondItem="WRX-KF-dIW" secondAttribute="width" multiplier="0.5" constant="-8" id="c6g-yc-36Q"/>
                             <constraint firstItem="Wqq-56-lCe" firstAttribute="leading" secondItem="WRX-KF-dIW" secondAttribute="leadingMargin" id="lKK-Jg-bZz"/>
+                            <constraint firstItem="Mjz-WZ-mbl" firstAttribute="top" secondItem="Joy-g1-xyl" secondAttribute="bottom" constant="18" id="m6E-zx-KyM"/>
                             <constraint firstItem="Wqq-56-lCe" firstAttribute="top" secondItem="Joy-g1-xyl" secondAttribute="bottom" constant="18" id="nXL-Mv-y5z"/>
                             <constraint firstItem="JcE-Yf-LwF" firstAttribute="centerY" secondItem="WRX-KF-dIW" secondAttribute="centerY" id="zvR-At-Md5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lKK-Jg-bZz"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="charadeLabel" destination="czp-gf-hLH" id="xeN-jw-KBr"/>
                         <outlet property="correctGuessesLabel" destination="Wqq-56-lCe" id="5wF-qt-tlV"/>
                         <outlet property="jumpButton" destination="UEA-o7-prk" id="lCx-1q-0Ll"/>
                         <outlet property="nextButton" destination="oZF-9y-Yyx" id="Lqa-Ie-w2a"/>
+                        <outlet property="roundTimerLabel" destination="Mjz-WZ-mbl" id="6Fc-hl-Ou5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8v-c6-J9K" userLabel="First Responder" sceneMemberID="firstResponder"/>

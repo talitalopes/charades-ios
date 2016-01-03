@@ -27,6 +27,13 @@ class GameRoundViewController : UIViewController {
         }
     }
  
+    @IBOutlet weak var roundTimerLabel : UILabel? {
+        didSet {
+            self.roundTimerLabel?.textColor =
+                UIColor.roundStatusTextColor()
+        }
+    }
+    
     @IBOutlet weak var nextButton : UIButton? {
         didSet {
             nextButton?.setTitleColor(UIColor.lightTextColor(), forState: .Normal)
@@ -77,29 +84,55 @@ class GameRoundViewController : UIViewController {
         self.skipToNext()
     }
     
-    var timer : NSTimer?
+    var initialTimer : NSTimer?
+    var roundTimer : NSTimer?
     var counter = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         self.view.backgroundColor = UIColor.roundBackgroundColor()
+        self.startInitialCountdown()
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showTimer:", userInfo: nil, repeats: true)
-        
-        NSRunLoop.currentRunLoop().addTimer(self.timer!, forMode: NSDefaultRunLoopMode)
+        UIApplication.sharedApplication().statusBarHidden = true
+    }
+    
+    func startInitialCountdown() {
+        self.initialTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showTimer:", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(self.initialTimer!, forMode: NSDefaultRunLoopMode)
+    }
+    
+    func startRoundCountdown() {
+        self.roundTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showRoundTimer:", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(self.roundTimer!, forMode: NSDefaultRunLoopMode)
     }
     
     func showTimer(timer: NSTimer) {
         self.charadeLabel?.text = "\(self.counter)"
         
         if (counter == 0) {
-            self.timer?.invalidate()
+            self.initialTimer?.invalidate()
             self.count = 1
             self.charadeLabel?.text = "Charade \(self.count)"
             
             self.nextButton?.hidden = false
             self.jumpButton?.hidden = false
+            self.roundTimerLabel?.hidden = false
+
+            self.counter = 30
+            
+            self.startRoundCountdown()
+        }
+        
+        self.counter -= 1
+    }
+    
+    func showRoundTimer(timer: NSTimer) {
+        self.roundTimerLabel?.text = "\(self.counter)"
+        
+        if (self.counter == 0) {
+            self.roundTimer?.invalidate()
+            self.navigationController?.popToRootViewControllerAnimated(true)
         }
         
         self.counter -= 1

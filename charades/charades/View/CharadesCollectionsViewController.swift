@@ -41,6 +41,7 @@ class CharadesCollectionsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "Charades"
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func viewWillDisappear(animated: Bool) {
