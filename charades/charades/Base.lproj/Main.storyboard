@@ -32,7 +32,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxa-Ss-9gs">
                                                     <rect key="frame" x="18" y="13" width="564" height="134"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -114,10 +114,10 @@
                                 </constraints>
                                 <state key="normal" title="Próximo"/>
                                 <connections>
-                                    <action selector="correctGuesse" destination="lZm-RU-yaF" eventType="touchUpInside" id="HaQ-he-rMI"/>
+                                    <action selector="correctGuess" destination="lZm-RU-yaF" eventType="touchUpInside" id="D6S-93-VlF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqq-56-lCe">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqq-56-lCe">
                                 <rect key="frame" x="538" y="82" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -154,7 +154,7 @@
                     </view>
                     <connections>
                         <outlet property="charadeLabel" destination="czp-gf-hLH" id="xeN-jw-KBr"/>
-                        <outlet property="correctGuessesLabel" destination="Wqq-56-lCe" id="5wF-qt-tlV"/>
+                        <outlet property="gameStatusLabel" destination="Wqq-56-lCe" id="WBN-uB-iOL"/>
                         <outlet property="jumpButton" destination="UEA-o7-prk" id="lCx-1q-0Ll"/>
                         <outlet property="nextButton" destination="oZF-9y-Yyx" id="Lqa-Ie-w2a"/>
                         <outlet property="roundTimerLabel" destination="Mjz-WZ-mbl" id="6Fc-hl-Ou5"/>

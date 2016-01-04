@@ -18,8 +18,16 @@ extension UIColor {
         return UIColor.whiteColor()
     }
  
+    static func mainBackgoundColor() -> UIColor {
+        return UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+    }
+    
     static func charadesCollectionColor() -> UIColor {
-        return UIColor(red: 170.0/255.0, green: 126.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        return UIColor.whiteColor()
+    }
+    
+    static func charadesCollectionTextColor() -> UIColor {
+        return UIColor.darkTextColor()
     }
     
     static func buttonBackgroundColor() -> UIColor {

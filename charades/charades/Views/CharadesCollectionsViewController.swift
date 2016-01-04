@@ -21,14 +21,15 @@ enum CharadesCellSetup {
     
     func setup(cell: CharadeCell) {
         cell.titleLabel.backgroundColor = UIColor.charadesCollectionColor()
-        cell.titleLabel.textColor = UIColor.lightTextColor()
+        cell.titleLabel.textColor = UIColor.charadesCollectionTextColor()
         
         cell.clipsToBounds = false
         cell.titleLabel.layer.shadowColor = UIColor.shadowColor().CGColor
         cell.titleLabel.layer.shadowOffset = CGSizeMake(0, 3)
         cell.titleLabel.layer.shadowOpacity = 0.5
+        
+        cell.backgroundColor = UIColor.mainBackgoundColor()
     }
-    
 }
 
 class CharadesCollectionsViewController: UIViewController {
@@ -37,6 +38,11 @@ class CharadesCollectionsViewController: UIViewController {
     
     var datasource = ["Famosos do Mundo", "Países", "Expressões Populares"]
     var kCellIdentifier = "CharadeCollectionCell"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor.mainBackgoundColor()
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

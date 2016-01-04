@@ -17,12 +17,9 @@ class GameRoundViewController : UIViewController {
         }
     }
 
-    @IBOutlet weak var correctGuessesLabel : UILabel? {
+    @IBOutlet weak var gameStatusLabel : UILabel? {
         didSet {
-            self.correctGuessesLabel?.text =
-            "\(self.correctGuesses) / \(self.count)"
-            
-            self.correctGuessesLabel?.textColor =
+            self.gameStatusLabel?.textColor =
                 UIColor.roundStatusTextColor()
         }
     }
@@ -55,87 +52,58 @@ class GameRoundViewController : UIViewController {
             jumpButton?.layer.shadowOpacity = 0.5
         }
     }
-
-    var count : Int = 0 {
-        didSet {
-            if (count == 0) {
-                return
-            }
-            self.charadeLabel?.text = "Charade \(self.count)"
-            self.correctGuessesLabel?.text =
-            "\(self.correctGuesses) / \(self.count)"
-        }
-    }
     
-    var correctGuesses = 0 {
-        didSet {
-            self.correctGuessesLabel?.text =
-            "\(self.correctGuesses) / \(self.count)"
-        }
+    var presenter : GameRoundPresenter!
+    
+    func updateGameStatus(hits: Int, total: Int) {
+        self.gameStatusLabel?.text = "Hits: \(hits) / Count: \(total)"
     }
     
     @IBAction func skipToNext() {
-        self.count += 1
-        self.charadeLabel?.text = "Charade \(self.count)"
+        self.presenter.skipToNext()
     }
     
-    @IBAction func correctGuesse() {
-        self.correctGuesses++
-        self.skipToNext()
+    @IBAction func correctGuess() {
+        self.presenter.correctGuess()
     }
-    
-    var initialTimer : NSTimer?
-    var roundTimer : NSTimer?
-    var counter = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         self.view.backgroundColor = UIColor.roundBackgroundColor()
-        self.startInitialCountdown()
         
         UIApplication.sharedApplication().statusBarHidden = true
+        
+        self.presenter = GameRoundPresenter()
+        self.presenter.setPresenterView(self)
+        self.presenter.startRound()
     }
     
-    func startInitialCountdown() {
-        self.initialTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showTimer:", userInfo: nil, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(self.initialTimer!, forMode: NSDefaultRunLoopMode)
+    func showTimer(time: Int) {
+        self.charadeLabel?.text = "\(time)"
     }
     
-    func startRoundCountdown() {
-        self.roundTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "showRoundTimer:", userInfo: nil, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(self.roundTimer!, forMode: NSDefaultRunLoopMode)
+    func initGame(charade: String) {
+        self.nextButton?.hidden = false
+        self.jumpButton?.hidden = false
+        self.roundTimerLabel?.hidden = false
+        self.gameStatusLabel?.hidden = false
+        
+        self.updateGameStatus(0, total: 1)
+        
+        self.showCharade(charade)
     }
     
-    func showTimer(timer: NSTimer) {
-        self.charadeLabel?.text = "\(self.counter)"
-        
-        if (counter == 0) {
-            self.initialTimer?.invalidate()
-            self.count = 1
-            self.charadeLabel?.text = "Charade \(self.count)"
-            
-            self.nextButton?.hidden = false
-            self.jumpButton?.hidden = false
-            self.roundTimerLabel?.hidden = false
-
-            self.counter = 30
-            
-            self.startRoundCountdown()
-        }
-        
-        self.counter -= 1
+    func showCharade(charade: String) {
+        self.charadeLabel?.text = "\(charade)"
     }
     
-    func showRoundTimer(timer: NSTimer) {
-        self.roundTimerLabel?.text = "\(self.counter)"
-        
-        if (self.counter == 0) {
-            self.roundTimer?.invalidate()
-            self.navigationController?.popToRootViewControllerAnimated(true)
-        }
-        
-        self.counter -= 1
+    func showRoundTimer(time: Int) {
+        self.roundTimerLabel?.text = "\(time)"
+    }
+    
+    func dismiss() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
 //    override func viewDidAppear(animated: Bool) {
