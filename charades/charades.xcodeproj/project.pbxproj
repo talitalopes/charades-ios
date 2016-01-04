@@ -14,7 +14,6 @@
 		0A8529011C39509A000FB7DF /* charadesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8529001C39509A000FB7DF /* charadesTests.swift */; };
 		0A85290C1C39509A000FB7DF /* charadesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85290B1C39509A000FB7DF /* charadesUITests.swift */; };
 		0A8529251C39980E000FB7DF /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8529241C39980E000FB7DF /* UIColor+CustomColors.swift */; };
-		0A8529271C399821000FB7DF /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8529261C399821000FB7DF /* UINavigationBar+Appearance.swift */; };
 		0A85292C1C39E100000FB7DF /* CharadeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85292A1C39E100000FB7DF /* CharadeCell.swift */; };
 		0A85292D1C39E100000FB7DF /* CharadesCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85292B1C39E100000FB7DF /* CharadesCollectionsViewController.swift */; };
 		0A8529351C39E157000FB7DF /* GameRoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8529341C39E157000FB7DF /* GameRoundViewModel.swift */; };
@@ -22,6 +21,7 @@
 		0A85293A1C39E190000FB7DF /* CharadeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8529391C39E190000FB7DF /* CharadeCollection.swift */; };
 		0A85293C1C39E2CC000FB7DF /* GameRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85293B1C39E2CC000FB7DF /* GameRoundViewController.swift */; };
 		0A85293E1C39E81C000FB7DF /* GameRoundPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85293D1C39E81C000FB7DF /* GameRoundPresenter.swift */; };
+		0A8529401C39F14C000FB7DF /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85293F1C39F14C000FB7DF /* UINavigationBar+Appearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,6 @@
 		0A85290B1C39509A000FB7DF /* charadesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = charadesUITests.swift; sourceTree = "<group>"; };
 		0A85290D1C39509A000FB7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A8529241C39980E000FB7DF /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+CustomColors.swift"; path = "charades/Extensions/UIColor+CustomColors.swift"; sourceTree = SOURCE_ROOT; };
-		0A8529261C399821000FB7DF /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Appearance.swift"; path = "../../../../../UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		0A85292A1C39E100000FB7DF /* CharadeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharadeCell.swift; sourceTree = "<group>"; };
 		0A85292B1C39E100000FB7DF /* CharadesCollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharadesCollectionsViewController.swift; sourceTree = "<group>"; };
 		0A8529341C39E157000FB7DF /* GameRoundViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameRoundViewModel.swift; path = charades/ViewModels/GameRoundViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -63,6 +62,7 @@
 		0A8529391C39E190000FB7DF /* CharadeCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharadeCollection.swift; sourceTree = "<group>"; };
 		0A85293B1C39E2CC000FB7DF /* GameRoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoundViewController.swift; sourceTree = "<group>"; };
 		0A85293D1C39E81C000FB7DF /* GameRoundPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoundPresenter.swift; sourceTree = "<group>"; };
+		0A85293F1C39F14C000FB7DF /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Appearance.swift"; path = "charades/Presenters/UINavigationBar+Appearance.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				0A8529241C39980E000FB7DF /* UIColor+CustomColors.swift */,
-				0A8529261C399821000FB7DF /* UINavigationBar+Appearance.swift */,
+				0A85293F1C39F14C000FB7DF /* UINavigationBar+Appearance.swift */,
 			);
 			name = Extensions;
 			path = Enum;
@@ -331,7 +331,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A85292C1C39E100000FB7DF /* CharadeCell.swift in Sources */,
-				0A8529271C399821000FB7DF /* UINavigationBar+Appearance.swift in Sources */,
 				0A85292D1C39E100000FB7DF /* CharadesCollectionsViewController.swift in Sources */,
 				0A8529381C39E179000FB7DF /* Charade.swift in Sources */,
 				0A8528EC1C39509A000FB7DF /* AppDelegate.swift in Sources */,
@@ -339,6 +338,7 @@
 				0A8529351C39E157000FB7DF /* GameRoundViewModel.swift in Sources */,
 				0A85293C1C39E2CC000FB7DF /* GameRoundViewController.swift in Sources */,
 				0A85293A1C39E190000FB7DF /* CharadeCollection.swift in Sources */,
+				0A8529401C39F14C000FB7DF /* UINavigationBar+Appearance.swift in Sources */,
 				0A8529251C39980E000FB7DF /* UIColor+CustomColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +566,7 @@
 				0A8529121C39509A000FB7DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A8529131C39509A000FB7DF /* Build configuration list for PBXNativeTarget "charadesTests" */ = {
 			isa = XCConfigurationList;
@@ -574,6 +575,7 @@
 				0A8529151C39509A000FB7DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A8529161C39509A000FB7DF /* Build configuration list for PBXNativeTarget "charadesUITests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +584,7 @@
 				0A8529181C39509A000FB7DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
